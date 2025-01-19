@@ -20,8 +20,7 @@
   <div class="custom-hotel-booking-area">
     <div class="custom-booking-table">
       <h2>
-        Book<br />
-        Your Room
+        Book Your Room
       </h2>
     </div>
 
@@ -30,20 +29,13 @@
       <div class="headerSearch">
         <!-- Destination Search Input -->
         <div class="headerSearchItem">
-          <input
-            type="text"
-            placeholder="Where are you going?"
-            [(ngModel)]="destination"
-            class="headerSearchInput"
-          />
+          <input type="text" placeholder="Where are you going?" [(ngModel)]="destination" class="headerSearchInput" />
         </div>
-      
+
         <!-- Date Range Picker -->
         <div class="headerSearchItem">
-          <span
-            (click)="toggleDatePicker()"
-            class="headerSearchText"
-          >{{ formatDate(dates[0].startDate) }} to {{ formatDate(dates[0].endDate) }}</span>
+          <span (click)="toggleDatePicker()" class="headerSearchText">{{ formatDate(dates[0].startDate) }} to {{
+            formatDate(dates[0].endDate) }}</span>
           <div *ngIf="openDate">
             <!-- <app-date-range-picker
               [dates]="dates"
@@ -51,13 +43,13 @@
             ></app-date-range-picker> -->
           </div>
         </div>
-      
+
         <!-- Search Button -->
         <div class="headerSearchItem">
           <button class="headerBtn" (click)="handleSearch()">Search</button>
         </div>
       </div>
-      
+
     </form>
   </div>
 

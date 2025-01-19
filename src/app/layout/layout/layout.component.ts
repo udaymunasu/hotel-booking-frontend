@@ -1,10 +1,22 @@
+import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
+  animations: [
+    trigger('dropdownAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateX(-100%)' }),
+        animate('300ms ease-out', style({ opacity: 1, transform: 'translateX(0)' })),
+      ]),
+      transition(':leave', [
+        animate('200ms ease-in', style({ opacity: 0, transform: 'translateX(-100%)' })),
+      ]),
+    ]),
+  ],
 })
 export class LayoutComponent implements OnInit {
   loggedUserData: any;
@@ -46,10 +58,10 @@ export class LayoutComponent implements OnInit {
     if (navbarContent) {
       if (this.isNavbarOpen) {
         // navbarContent.classList.add('collapse');
-        navbarContent.classList.remove('show'); // Hide navbar
+        navbarContent.classList.remove('open'); // Hide navbar
       } else {
         // navbarContent.classList.remove('collapse');
-        navbarContent.classList.add('show'); // Show navbar
+        navbarContent.classList.add('open'); // Show navbar
       }
     }
   }

@@ -4,6 +4,14 @@
 	.navbar .menu_nav .nav-item.submenu ul {
 		left: auto;
 		right: 0;
+		&:hover {
+			ul {
+				@media (min-width: 1300px) {
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+		}
 	}
 }
 
@@ -19,7 +27,7 @@
 	
 }
 
-@media(max-width: 991px) {
+@media(max-width: 1300px) {
 	.navbar-toggler {
 		border: none;
 		border-radius: 0px;
@@ -77,8 +85,6 @@
 	}
 
 	.navbar .menu_nav .nav-item .nav-link {
-		line-height: 36px;
-		padding: 0px;
 		position: relative;
 	}
 
@@ -90,7 +96,6 @@
 		color: #777777;
 		top: 0px;
 		height: 100%;
-		line-height: 36px;
 		border: 0px;
 		position: absolute;
 		right: 0px;
@@ -108,7 +113,6 @@
 	}
 
 	.navbar-collapse {
-		max-height: 288px;
 		overflow-y: scroll;
 	}
 
@@ -208,7 +212,6 @@
 
 	.blog_banner .banner_content h4 {
 		font-size: 48px;
-		line-height: 58px;
 		margin-bottom: 20px;
 	}
 
@@ -245,7 +248,6 @@
 @media(max-width: 575px) {
 	.banner_content h2 {
 		font-size: 40px;
-		line-height: 50px;
 	}
 
 	.banner_content p br {
@@ -263,7 +265,6 @@
 
 	.section_title h2 {
 		font-size: 26px;
-		line-height: 36px;
 	}
 
 	.testimonial_slider .testimonial_item img {
@@ -289,7 +290,6 @@
 
 	.blog_banner .banner_content h4 {
 		font-size: 36px;
-		line-height: 46px;
 	}
 }
 

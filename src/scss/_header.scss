@@ -1,14 +1,14 @@
-/*============== header css =============*/
+/* Base styles for the header area */
 .header_area {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 20;
-    // height:80px;
     background-color: linear-gradient(135deg, #3a6073, #16222a);
 }
 
+/* Container styles */
 .container {
     width: 100%;
     height: 100%;
@@ -19,86 +19,45 @@
     margin-left: unset;
 }
 
-.header-top {
-    padding: 3px 0px;
-
-    a {
-        color: #fff;
-        transition: all 0.3s linear;
-
-        &:hover {
-            color: $yellow;
-        }
-    }
-
-    ul {
-        padding-left: 0px;
-        margin-bottom: 0px;
-    }
-
-    ul li {
-        display: inline-block;
-        margin-right: 15px;
-
-        @media(max-width:414px) {
-            margin-right: 0px;
-        }
-    }
-
-    .header-top-left {
-        a {
-            margin-right: 8px;
-            font-size: 12px;
-            font-weight: 500;
-            line-height: 20px;
-            display: inline-block;
-        }
-    }
-
-    .header-top-right {
-        text-align: right;
-
-        .header-social {
-            a {
-                color: #fff;
-                margin-left: 15px;
-                transition: all 0.3s linear;
-                font-size: 14px;
-
-                &:hover {
-                    color: $yellow;
-                }
-            }
-        }
-    }
-
-}
-
+/* Navbar styles for larger screens */
 .navbar {
     padding: 0px;
     border: 0px;
     border-radius: 0px;
     height: 100%;
-}
-
-.navbar {
     background: linear-gradient(135deg, #3a6073, #16222a);
     padding: 0px 25px;
+    display: flex;
+    padding: 24px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 
     .logo_h {
         padding-top: 0px;
     }
 
+    .navbar-collapse {
+        display: flex !important;
+        /* Flex display for large screens */
+        justify-content: flex-start;
+    }
+
     .menu_nav {
+        list-style: none;
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        margin: unset;
+
         .nav-item {
+            display: flex;
             cursor: pointer;
+
             .nav-link {
-                font: 500 12px/80px $pop;
                 color: #fff;
                 text-transform: uppercase;
-                padding: 0px;
                 display: flex;
-                // line-height: 36px;
 
                 &.active-link {
                     color: $light_blue;
@@ -110,13 +69,40 @@
             }
 
             &:hover,
-   
             &.active-link {
                 color: $light_blue;
             }
 
             &.submenu {
                 position: relative;
+
+                .dropdown-menu {
+                    display: none;
+                    /* Show the dropdown */
+                    opacity: 0;
+                    visibility: hidden;
+                    /* Ensure the dropdown is visible */
+                    transition: opacity 0.3s ease, visibility 0s linear 0s;
+                    /* Add a fade-in effect */
+                }
+
+                &:hover {
+                    .dropdown-menu {
+                        position: absolute;
+                        /* Position the dropdown relative to the parent */
+                        top: 100%;
+                        /* Position it directly below the parent */
+                        left: 0;
+                        z-index: 10;
+                        display: block;
+                        /* Show the dropdown */
+                        opacity: 1;
+                        visibility: visible;
+                        /* Ensure the dropdown is visible */
+                        transition: opacity 0.3s ease, visibility 0s linear 0s;
+                        /* Add a fade-in effect */
+                    }
+                }
 
                 ul {
                     border: none;
@@ -125,116 +111,40 @@
                     box-shadow: none;
                     margin: 0px;
                     background: transparent;
+                    opacity: 0;
+                    visibility: hidden;
 
-                    @media (min-width: 992px) {
-                        position: absolute;
-                        top: 100%;
-                        left: 0px;
-                        min-width: 220px;
-                        text-align: left;
-                        opacity: 0;
-                        transition: all 300ms ease-in;
-                        visibility: hidden;
-                        display: block;
-                        border: none;
-                        padding: 0px;
-                        border-radius: 0px;
-                    }
 
-                    &:before {
-                        content: "";
-                        width: 0;
-                        height: 0;
-                        border-style: solid;
-                        border-width: 10px 10px 0 10px;
-                        border-color: #eeeeee transparent transparent transparent;
-                        position: absolute;
-                        right: 24px;
-                        top: 45px;
-                        z-index: 3;
-                        opacity: 0;
-                        transition: all 400ms linear;
-                    }
+
+
 
                     .nav-item {
                         display: block;
-                        float: none;
-                        margin-right: 0px;
-                        border-bottom: 1px solid #ededed;
-                        margin-left: 0px;
+                        margin-bottom: 10px;
                         background: #fff;
                         transition: all 0.4s linear;
 
-                        @media(min-width:992px) {
-                            margin-top: 10px;
-                        }
-
                         .nav-link {
-                            line-height: 45px;
-                            color: $dark;
-                            padding: 0px 30px;
+                            color: #16222a;
+                            padding: 10px 30px;
                             transition: all 150ms linear;
-                            display: block;
-                        }
-
-                        &:last-child {
-                            border-bottom: none;
                         }
 
                         &:hover {
+                            background: #f0f0f0;
+
                             .nav-link {
-                                background: #f0f0f0;
                                 color: $light_blue;
                             }
                         }
                     }
                 }
 
-                &:hover {
-                    ul {
-                        @media (min-width: 992px) {
-                            visibility: visible;
-                            opacity: 1;
-                        }
-
-                        .nav-item {
-                            margin-top: 0px;
-                        }
-                    }
-                }
-            }
-
-            &+li {
-                color: #fff;
-                margin-left: 30px;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 6px;
 
             }
         }
     }
 }
-
-
-
-.menu_two {
-    background: rgba(255, 255, 255, 0.15);
-
-    .menu_nav {
-        .nav-item {
-            color: #fff;
-            .nav-link {
-                line-height: 60px;
-                color: #fff;
-            }
-        }
-    }
-}
-
-
-//affix menu css
 
 .navbar_fixed {
     position: fixed;
@@ -247,14 +157,136 @@
     transform: translateY(50px);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     transition: transform 300ms ease, background 300ms ease, -webkit-transform 300ms ease;
+}
 
+/* Styles for the navbar toggler button */
+.navbar-toggler {
+    display: none;
+    /* Hide by default on large screens */
 
+    @media (max-width: 1300px) {
+        display: block;
+        /* Show on smaller screens */
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
 
-    .header-top {
+        .icon-bar {
+            display: block;
+            background-color: white;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: 0.3s;
+        }
+
+        &.open .icon-bar:nth-child(1) {
+            transform: rotate(45deg);
+            position: relative;
+            top: 8px;
+        }
+
+        &.open .icon-bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        &.open .icon-bar:nth-child(3) {
+            transform: rotate(-45deg);
+            position: relative;
+            top: -8px;
+        }
+    }
+}
+
+/* Styles for navbar-collapse (side menu for smaller screens) */
+
+/* Media query for smaller screens (less than 1300px) */
+@media (max-width: 1300px) {
+    .navbar-collapse {
         display: none;
+        /* Hidden by default */
     }
 
-    &.header_two {
-        background: rgba(34, 34, 34, 0.9)
+    /* Show the navbar when it is open */
+    .navbar-collapse.open {
+        display: block;
     }
+
+    /* Toggle button visible on mobile */
+    .navbar-toggler {
+        display: block;
+    }
+
+    .navbar-collapse {
+        display: none !important;
+        /* Hidden by default on small screens */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100vh;
+        background-color: #16222a;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        transform: translateX(-100%);
+        /* Hidden off-screen to the left */
+        transition: transform 0.3s ease;
+        /* Smooth sliding transition */
+
+        /* Navbar items inside the sidebar */
+        .navbar-nav {
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+
+            .nav-item {
+                width: 100%;
+                margin: 0;
+                padding: 10px 20px;
+
+                .nav-link {
+                    color: white;
+                    padding: 0 20px;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    padding: 10px 20px;
+                    text-align: left;
+                }
+
+                &.active-link {
+                    color: #1e9cd8;
+                }
+
+                &:hover {
+                    background-color: #1e9cd8;
+                    transition: background-color 0.3s ease;
+                }
+            }
+        }
+
+        /* Add the 'open' class to slide the navbar in */
+        &.open {
+            transform: translateX(0);
+            /* Slide in when open */
+        }
+    }
+
+}
+
+/* Styles for active state of the navbar items */
+.navbar-nav .nav-item.active .nav-link {
+    color: #1e9cd8;
+    /* Highlight active links */
+}
+
+/* Hover effect for navbar items */
+.navbar-nav .nav-item:hover .nav-link {
+    background-color: #1e9cd8;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+app-footer {
+    width: 100%;
 }

@@ -1,19 +1,20 @@
 <header class="header_area">
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" routerLink="/dashboard">
-                <!-- <img src="assets/image/Logo.png" alt=""> -->
                 Dream Stays
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                (click)="toggleNavbar()" aria-controls="navbarSupportedContent" aria-expanded="false"
+
+            <!-- Toggle button for small screens -->
+            <button class="navbar-toggler" (click)="toggleNavbar()" aria-controls="navbarSupportedContent"
                 aria-label="Toggle navigation">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <!-- Navbar links -->
             <div class="navbar-collapse offset collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav menu_nav ml-auto">
                     <li class="nav-item active">
@@ -31,7 +32,6 @@
                     <li class="nav-item">
                         <a class="nav-link">Welcome {{ loggedUserData?.name }}</a>
                     </li>
-
                     <li class="nav-item submenu dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                             aria-haspopup="true" aria-expanded="false">Blog</a>
@@ -46,7 +46,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="elements.html" routerLinkActive="active-link">Elemests</a>
+                        <a class="nav-link" href="elements.html" routerLinkActive="active-link">Elements</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html" routerLinkActive="active-link">Contact</a>
@@ -55,8 +55,11 @@
                         <a class="nav-link" routerLink="/userProfile" routerLinkActive="active-link">Profile</a>
                     </li>
                     <li class="nav-item" (click)="onLogoff()">
-                        Sign out
-                        <span class="icons logout" style="--icon-color: white" routerLinkActive="active-link"></span>
+                        <a class="nav-link">Sign out
+                            <span class="icons logout" style="--icon-color: white" routerLinkActive="active-link"></span>
+
+                        </a>
+                      
                     </li>
                 </ul>
             </div>
