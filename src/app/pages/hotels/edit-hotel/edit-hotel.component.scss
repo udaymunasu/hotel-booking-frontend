@@ -1,0 +1,92 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    input,
+    textarea {
+      margin-top: 5px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    input[type="file"] {
+      margin-top: 10px;
+    }
+
+    small {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .amenities-container {
+      margin-top: 10px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+    }
+
+    .image-preview {
+      margin-top: 20px;
+
+      h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      img {
+        max-width: 100px;
+        margin: 5px;
+        border-radius: 4px;
+      }
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}

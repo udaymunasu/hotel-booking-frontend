@@ -1,0 +1,231 @@
+$primary-color: #4CAF50; // A nice green for buttons
+$background-color: #f4f4f4; // Light background color
+$card-background: #fff; // Card background color
+$border-radius: 8px;
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: $card-background;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        text-align: center;
+        color: $primary-color;
+        margin-bottom: 1.5rem;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        div {
+            margin-bottom: 1.5rem;
+
+            label {
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+                display: block;
+                color: #333;
+            }
+
+            input,
+            textarea,
+            select {
+                width: 100%;
+                padding: 10px;
+                border: 2px solid #ccc;
+                border-radius: $border-radius;
+                font-size: 1rem;
+                transition: border-color 0.3s;
+
+                &:focus {
+                    border-color: $primary-color;
+                    outline: none;
+                }
+            }
+
+            select {
+                position: relative;
+                width: 100%;
+                padding: 12px 20px;
+                background: transparent;
+                border: 2px solid #ccc;
+                border-radius: 5px;
+                font-size: 1em;
+                color: #333;
+                box-shadow: none;
+                outline: none;
+                margin-bottom: 20px;
+
+                option {
+                    padding: 10px; // Adjust padding for options if needed
+                }
+            }
+
+
+
+            textarea {
+                min-height: 100px;
+                resize: vertical; // Allow vertical resizing only
+            }
+
+            select {
+                height: auto; // Allow dynamic height
+
+                option {
+                    padding: 10px; // Space for options
+                }
+            }
+        }
+
+        .selected-info {
+            margin-top: 2rem;
+
+            h3 {
+                margin: 0.5rem 0;
+                color: #333;
+            }
+
+            ul {
+                list-style-type: none;
+                display: flex;
+                padding: 0;
+                gap: 12px;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+
+                li {
+                    background: #e9ecef;
+                    padding: 10px;
+                    margin: 5px 0;
+                    border-radius: 5px;
+                }
+            }
+
+            .preview-container {
+                display: flex;
+                flex-wrap: wrap; // Allow wrapping of images
+                justify-content: center; // Center the images
+                margin-top: 1rem;
+
+
+                img {
+                    max-width: 200px; // Set max width for uniform display
+                    max-height: 200px; // Set max height
+                    object-fit: cover; // Maintain aspect ratio
+                    margin: 5px; // Space between images
+                    border-radius: 5px; // Rounded corners
+                    border: 1px solid #ddd; // Light border around images
+                }
+            }
+        }
+
+
+        button {
+            background-color: $primary-color;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: $border-radius;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
+
+            &:disabled {
+                background-color: #ccc;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    h3 {
+        margin: 1rem 0;
+        color: #333;
+    }
+
+    .room-type {
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: $border-radius;
+
+        label {
+            margin: 0.5rem 0;
+            display: block;
+        }
+    }
+
+
+
+    .amenities-container {
+        background-color: #f9f9f9; // Light background for contrast
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin: 1rem 0; // Adds spacing around the container
+
+        label {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: #333;
+        }
+
+        .amenities-list {
+            display: flex;
+            flex-direction: row; // Stacks the items vertically
+            margin-top: 4px;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            .checkbox-wrapper {
+                display: flex;
+                align-items: center;
+                margin: 0.5rem 0;
+                cursor: pointer;
+                flex-wrap: wrap;
+                gap: 12px;
+
+                input[type="checkbox"] {
+                    // Styles for the checkbox
+                    margin-right: 4px; // Space between checkbox and label
+                    accent-color: #007bff; // Change checkbox color
+                    width: 1.2rem; // Set size of the checkbox
+                    height: 1.2rem; // Set size of the checkbox
+                    cursor: pointer; // Pointer cursor on hover
+                }
+
+                span {
+                    font-size: 1rem;
+                    color: #555;
+                }
+            }
+        }
+    }
+
+    .file-previews {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    .file-preview {
+        max-width: 100px;
+        max-height: 100px;
+        object-fit: cover;
+        margin-top: 10px;
+    }
+
+
+
+}

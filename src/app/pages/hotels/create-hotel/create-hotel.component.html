@@ -1,0 +1,88 @@
+<div class="container">
+    <h2>Create Hotel</h2>
+    <form [formGroup]="hotelForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="name">Hotel Name:</label>
+            <input id="name" formControlName="name" required />
+        </div>
+
+        <div>
+            <label for="description">Description:</label>
+            <textarea id="description" formControlName="description" required></textarea>
+        </div>
+
+        <div>
+            <label for="location">Location:</label>
+            <input id="location" formControlName="location" required />
+        </div>
+
+        <div>
+            <label for="pricePerNight">Price per Night:</label>
+            <input id="pricePerNight" type="number" formControlName="pricePerNight" required />
+        </div>
+
+        <div class="amenities-container">
+            <label>Choose Amenities:</label>
+            <div class="amenities-list">
+                <label class="checkbox-wrapper" *ngFor="let amenity of amenitiesList">
+                    <input 
+                        type="checkbox" 
+                        [value]="amenity" 
+                        (change)="onAmenitiesChange($event)" 
+                        [checked]="hotelForm.get('amenities')?.value.includes(amenity)" 
+                    />
+                    <span>{{ amenity }}</span>
+                </label>
+            </div>
+        </div>
+        
+
+
+        <div>
+            <label for="images">Images:</label>
+            <input type="file" id="images" (change)="onImageSelected($event)" accept="image/*" multiple/>
+            <small>Select multiple images.</small>
+        </div>
+
+        <div class="selected-info">
+            <h3>Selected Amenities:</h3>
+            <ul>
+                <li *ngFor="let amenity of hotelForm.get('amenities')?.value">{{ amenity }}</li>
+            </ul>
+
+            <div *ngIf="filePreviews.length > 0">
+                <h3>Selected Files:</h3>
+                <div class="file-previews">
+                    <div *ngFor="let file of filePreviews">
+                        <div>
+                            <strong>File: </strong>{{ file.name }}<br>
+                            <strong>Size: </strong>{{ file.size }} bytes<br>
+                            <strong>Type: </strong>{{ file.type }}
+                        </div>
+                        <!-- <div *ngIf="file.type.startsWith('image/')">
+                            <img [src]="file.previewUrl" alt="Preview" class="file-preview" />
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div formArrayName="roomTypes" *ngIf="roomTypes">
+            <h3>Room Types</h3>
+            <div *ngFor="let roomType of roomTypes?.controls; let i = index" [formGroupName]="i">
+                <label for="type">Room Type:</label>
+                <input id="type" formControlName="type" required />
+
+                <label for="price">Price:</label>
+                <input id="price" type="number" formControlName="price" required />
+
+                <label for="capacity">Capacity:</label>
+                <input id="capacity" type="number" formControlName="capacity" required />
+            </div>
+            <button type="button" (click)="addRoomType()">Add Room Type</button>
+        </div>
+
+        <button type="submit" >Create Hotel</button>
+    </form>
+</div>

@@ -1,0 +1,163 @@
+/* Global Styles for Footer */
+.footer {
+    background-color: #282828;
+    color: white;
+    padding: 40px 10px;
+    font-family: 'Arial', sans-serif;
+
+    /* Footer Container */
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    /* Each Footer Section */
+    .footer-section {
+        flex: 1 1 300px; // Make sure the sections can grow and shrink based on available space
+        min-width: 250px; // Ensure no section becomes too narrow
+
+        h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        p,
+        li {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+
+            input {
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 1rem;
+                width: 200px;
+            }
+
+            button {
+                background-color: #f4a261;
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1rem;
+
+                &:hover {
+                    background-color: #e76f51;
+                }
+            }
+        }
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 0.8rem;
+        border-top: 1px solid #444;
+        padding-top: 20px;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 1024px) {
+        .footer-container {
+            justify-content: center;
+        }
+
+        .footer-section {
+            flex: 1 1 45%;
+        }
+
+        .newsletter-form {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-links {
+            gap: 10px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-section {
+            text-align: center;
+            flex: 1 1 100%;
+        }
+
+        .newsletter-form input {
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            font-size: 0.7rem;
+            padding-top: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer {
+            padding: 30px 10px;
+        }
+
+        .footer-section {
+            h4 {
+                font-size: 1rem;
+            }
+
+            p,
+            li {
+                font-size: 0.8rem;
+            }
+
+            .newsletter-form input {
+                width: 90%;
+            }
+        }
+
+        .footer-bottom p {
+            font-size: 0.6rem;
+        }
+    }
+}

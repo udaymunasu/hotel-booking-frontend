@@ -1,0 +1,115 @@
+<div class="dashboard">
+  <section class="custom-banner-area">
+    <div class="custom-bg-parallax">
+      <!-- Content on top of the background image -->
+      <div class="custom-container">
+        <div class="custom-banner-content">
+          <h6>Away from monotonous life</h6>
+          <h2>Relax Your Mind</h2>
+          <p>
+            If you are looking at blank cassettes on the web, you may be very
+            confused at the difference in price. You may see some for as low as
+            $.17 each.
+          </p>
+          <a href="#" class="custom-theme-btn">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="custom-hotel-booking-area">
+    <div class="custom-booking-table">
+      <h2>
+        Book<br />
+        Your Room
+      </h2>
+    </div>
+
+    <!-- Booking Form -->
+    <form [formGroup]="hotelForm" class="custom-hotel-booking-table">
+      <div class="headerSearch">
+        <!-- Destination Search Input -->
+        <div class="headerSearchItem">
+          <input
+            type="text"
+            placeholder="Where are you going?"
+            [(ngModel)]="destination"
+            class="headerSearchInput"
+          />
+        </div>
+      
+        <!-- Date Range Picker -->
+        <div class="headerSearchItem">
+          <span
+            (click)="toggleDatePicker()"
+            class="headerSearchText"
+          >{{ formatDate(dates[0].startDate) }} to {{ formatDate(dates[0].endDate) }}</span>
+          <div *ngIf="openDate">
+            <!-- <app-date-range-picker
+              [dates]="dates"
+              (datesChange)="onDatesChange($event)"
+            ></app-date-range-picker> -->
+          </div>
+        </div>
+      
+        <!-- Search Button -->
+        <div class="headerSearchItem">
+          <button class="headerBtn" (click)="handleSearch()">Search</button>
+        </div>
+      </div>
+      
+    </form>
+  </div>
+
+
+
+
+  <div class="custom-carousel">
+    <div class="custom-carousel-inner">
+      <div class="custom-carousel-item" *ngFor="let slide of carouselImages; let i = index">
+        <img [src]="slide.image" alt="{{ slide.title }}" />
+        <div class="carousel-caption">
+          <h5>{{ slide.title }}</h5>
+          <p>{{ slide.description }}</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control prev" (click)="prevSlide()">
+      &#10094;
+    </button>
+    <button class="carousel-control next" (click)="nextSlide()">
+      &#10095;
+    </button>
+  </div>
+
+  <div class="pList">
+    <ng-container *ngIf="loading; else content">
+      <p>Loading...</p>
+    </ng-container>
+
+    <ng-template #content>
+      <div *ngFor="let img of images; let i = index" class="pListItem">
+        <img [src]="img" alt="" class="pListImg" />
+        <div class="pListTitles" *ngIf="HotelTypes?.length">
+          <h1>{{ HotelTypes[i]?.type }}</h1>(<h1>{{ HotelTypes[i]?.count }}</h1>)
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+  <h2 class="section-title">Top Destinations in Hyderabad</h2>
+
+  <div class="destination-grid">
+    <div *ngFor="let destination of topDestinationsInHyderabad; let i = index" class="destination-item">
+      <img [src]="destination.imageUrl" [alt]="destination.name" class="destination-image" />
+      <div class="destination-info">
+        <h3>{{ destination.name }}</h3>
+        <p>{{ destination.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+
+
+</div>

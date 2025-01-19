@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+    width: 100%;
+    overflow: hidden;
+}
+
+.login {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login h2 {
+    font-size: 2em;
+    color: #fff;
+}
+
+.login .inputBx {
+    position: relative;
+}
+
+.login .inputBx input {
+    position: relative;
+    padding: 12px 20px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    font-size: 1.2em;
+    color: #fff;
+    box-shadow: none;
+    outline: none;
+}
+
+.login .inputBx input[type="submit"] {
+    background: #0078ff;
+    background: linear-gradient(45deg, #ff357a, #fff172);
+    border: none;
+    cursor: pointer;
+}
+
+.login .inputBx input::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.login .links {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: #fff;
+}
+
+.login .links a {
+    color: #0078ff;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+}
+
+.links a.active {
+    font-weight: bold;
+    /* Style for active link */
+    text-decoration: underline;
+    /* Example styling */
+}
+
+select {
+    position: relative;
+    padding: 12px 30px 12px 20px;
+    /* Adjust padding to control space */
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    font-size: 1.2em;
+    color: #fff;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    /* Remove default styling */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"><polygon points="0,0 10,10 20,0" fill="%23fff"/></svg>');
+    /* Custom caret */
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    /* Position the custom caret */
+    background-size: 10px;
+    /* Size of the custom caret */
+}
+
+select option {
+    color: #000
+}

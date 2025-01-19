@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+
+.register-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.login {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login h2 {
+    font-size: 2em;
+    color: #fff;
+}
+
+
+.login .inputBx input {
+    padding: 12px 20px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    font-size: 1.2em;
+    color: #fff;
+    box-shadow: none;
+    outline: none;
+}
+
+.login .inputBx input[type="submit"] {
+    width: 100%;
+    background: #0078ff;
+    background: linear-gradient(45deg, #ff357a, #fff172);
+    border: none;
+    cursor: pointer;
+}
+
+.login .inputBx input::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.login .links {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: #fff;
+    width: 100%;
+}
+
+.login .links a {
+    color: #0078ff;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+select {
+    position: relative;
+    width: 100%;
+    padding: 12px 30px 12px 20px;
+    /* Adjust padding to control space */
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    font-size: 1.2em;
+    color: #fff;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    /* Remove default styling */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 10"><polygon points="0,0 10,10 20,0" fill="%23fff"/></svg>');
+    /* Custom caret */
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    /* Position the custom caret */
+    background-size: 10px;
+    /* Size of the custom caret */
+}
+
+select option {
+    color: #000
+}

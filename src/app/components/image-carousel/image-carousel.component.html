@@ -1,0 +1,33 @@
+<div
+  class="carousel-container"
+  [style.width]="width"
+  [style.height]="height"
+  (mouseover)="onHover()"
+  (mouseleave)="onMouseLeave()"
+>
+  <div class="carousel-wrapper">
+    <div
+      class="carousel-image"
+      *ngFor="let image of images; let i = index"
+      [ngClass]="{ active: i === currentIndex }"
+      [ngStyle]="{ transform: 'translateX(' + -currentIndex * 100 + '%)' }"
+    >
+      <img [src]="image" alt="Carousel image" />
+    </div>
+  </div>
+
+  <button
+    *ngIf="images.length > 1 && currentIndex > 0"
+    (click)="prevImage()"
+    class="prev-btn"
+  >
+    &#9664;
+  </button>
+  <button
+    *ngIf="images.length > 1 && currentIndex < images.length - 1"
+    (click)="nextImage()"
+    class="next-btn"
+  >
+    &#9654;
+  </button>
+</div>

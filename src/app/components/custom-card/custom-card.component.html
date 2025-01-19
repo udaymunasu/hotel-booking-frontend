@@ -1,0 +1,15 @@
+<div class="card">
+    <!-- Fixed Content -->
+    <div class="card-header">
+      <img *ngIf="image" [src]="image" alt="Card Image" class="card-image">
+      <h3>{{ name }}</h3>
+      <p> {{ description }}</p>
+      <p> {{ location }}</p>
+    </div>
+  
+    <!-- Custom Content (Dynamic) -->
+    <div class="card-body">
+      <ng-content></ng-content> <!-- Custom template content injected by the parent -->
+    </div>
+  </div>
+  

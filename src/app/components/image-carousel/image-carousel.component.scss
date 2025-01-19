@@ -1,0 +1,61 @@
+.carousel-container {
+  position: relative;
+  width: 100%; // Take the full width of the parent card
+  max-width: 600px; // Set a maximum width for a balanced layout
+  height: 300px; // Define a fixed height that works well visually
+  margin: 0 auto; // Center the carousel in the parent
+  overflow: hidden; // Prevent images from overflowing outside the container
+  border-radius: 8px; // Optional: Add rounded corners for aesthetics
+
+  .carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%; // Matches the container height
+  }
+
+  .carousel-image {
+    min-width: 100%; // Each image takes the full width of the container
+    height: 100%; // Matches the container height
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%; // Image fills the container width
+      height: 100%; // Image fills the container height
+      object-fit: cover; // Ensures the image fits without distortion
+    }
+  }
+
+  .prev-btn,
+  .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  .prev-btn {
+    left: 10px;
+  }
+
+  .next-btn {
+    right: 10px;
+  }
+}

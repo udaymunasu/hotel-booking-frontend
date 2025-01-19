@@ -1,0 +1,103 @@
+<div class="container">
+  <h2>Edit Hotel</h2>
+  <form [formGroup]="hotelForm" (ngSubmit)="onSubmit()">
+    <!-- Hotel Name -->
+    <label for="name">Hotel Name:</label>
+    <input id="name" formControlName="name" required />
+
+    <!-- Hotel Type -->
+    <label for="type">Hotel Type:</label>
+    <input id="type" formControlName="type" required />
+
+    <!-- Description -->
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description" required></textarea>
+
+    <!-- Location -->
+    <label for="location">Location:</label>
+    <input id="location" formControlName="location" required />
+
+    <!-- City -->
+    <label for="city">City:</label>
+    <input id="city" formControlName="city" />
+
+    <!-- Price per Night -->
+    <label for="pricePerNight">Price per Night:</label>
+    <input id="pricePerNight" type="number" formControlName="pricePerNight" required />
+
+    <!-- Amenities -->
+    <label>Choose Amenities:</label>
+    <div>
+      <label *ngFor="let amenity of amenitiesList">
+        <input type="checkbox" [value]="amenity" (change)="onAmenitiesChange(amenity, $event)"
+          [checked]="hotelForm.get('amenities')?.value.includes(amenity)" />
+        {{ amenity }}
+      </label>
+    </div>
+
+    <!-- Rating -->
+    <label for="rating">Rating (0-5):</label>
+    <input id="rating" type="number" formControlName="rating" min="0" max="5" />
+
+    <!-- Room Types -->
+    <label for="roomTypes">Room Types:</label>
+    <div formArrayName="roomTypes">
+      <div *ngFor="let room of roomTypes.controls; let i = index" [formGroupName]="i">
+        <label for="roomType">Room Type:</label>
+        <input id="roomType" formControlName="type" required />
+
+        <label for="roomPrice">Room Price:</label>
+        <input id="roomPrice" type="number" formControlName="price" required />
+
+        <label for="roomCapacity">Room Capacity:</label>
+        <input id="roomCapacity" type="number" formControlName="capacity" required />
+
+        <!-- Remove Room Type Button -->
+        <button type="button" (click)="removeRoomType(i)">Remove Room Type</button>
+      </div>
+      <button type="button" (click)="addRoomType()">Add Room Type</button>
+    </div>
+
+    <!-- Featured -->
+    <label for="featured">Featured:</label>
+    <input id="featured" type="checkbox" formControlName="featured" />
+
+    <!-- Contact Information -->
+    <h3>Contact Information</h3>
+    <div formGroupName="contact">
+      <label for="phone">Phone:</label>
+      <input id="phone" type="text" formControlName="phone" />
+
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" />
+    </div>
+
+
+
+    <!-- Check-in and Check-out Times -->
+    <h3>Check-in / Check-out Times</h3>
+    <label for="checkInTime">Check-in Time:</label>
+    <input id="checkInTime" type="time" formControlName="checkInTime" />
+
+    <label for="checkOutTime">Check-out Time:</label>
+    <input id="checkOutTime" type="time" formControlName="checkOutTime" />
+
+
+
+    <!-- Images -->
+    <label for="images">Images:</label>
+    <input type="file" id="images" (change)="onImageSelected($event)" accept="image/*" multiple />
+    <small>Select multiple images.</small>
+
+    <!-- Selected Images Preview -->
+    <div class="image-preview" *ngIf="selectedImages.length > 0">
+      <h3>Image Previews:</h3>
+      <div>
+        <img *ngFor="let image of selectedImages" [src]="image" alt="Selected Image" />
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="!hotelForm.valid">Save Changes</button>
+  </form>
+</div>

@@ -1,0 +1,134 @@
+.booking-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+
+    &-header {
+        display: flex;
+        padding: 15px;
+        background-color: #f7f7f7;
+        align-items: center;
+
+        .hotel-image {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .hotel-info {
+            flex: 1;
+
+            h3 {
+                font-size: 1.4rem;
+                font-weight: bold;
+                margin-bottom: 5px;
+                color: #333;
+            }
+
+            .hotel-location {
+                font-size: 1rem;
+                color: #666;
+            }
+
+            .hotel-description {
+                font-size: 0.9rem;
+                color: #777;
+                margin-top: 5px;
+            }
+        }
+    }
+
+    &-body {
+        padding: 20px;
+
+        .room-details {
+            margin-bottom: 15px;
+
+            h4 {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: #333;
+            }
+
+            span {
+                font-size: 1rem;
+                color: #555;
+                font-weight: 500;
+            }
+        }
+
+        .amenities {
+            margin-bottom: 20px;
+
+            h5 {
+                font-size: 1.1rem;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+            .amenity-pills {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .pill {
+                    background-color: #007bff;
+                    color: #fff;
+                    padding: 6px 12px;
+                    border-radius: 20px;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
+            }
+        }
+
+        .pricing {
+            margin-bottom: 20px;
+
+            h4 {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: #333;
+            }
+
+            .price {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #e91e63; // Pinkish hue for the price
+            }
+        }
+    }
+
+    &-footer {
+        padding: 15px;
+        background-color: #f7f7f7;
+        display: flex;
+        justify-content: center;
+
+        .btn-book-now {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #218838;
+            }
+        }
+    }
+}

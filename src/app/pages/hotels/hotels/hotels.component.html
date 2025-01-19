@@ -1,0 +1,58 @@
+<div class="container">
+  <h2>Hotel Listings</h2>
+
+  <!-- Search Input Field -->
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchText" placeholder="Search by Name, Location, or Amenities..."
+      class="search-input"  (input)="onSearchChange()"/>
+  </div>
+
+  <!-- Table -->
+  <table class="hotel-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Price per Night</th>
+        <th>Amenities</th>
+        <th>Images</th>
+        <th>Room Types</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hotel of filteredHotels">
+        <td>{{ hotel.name }}</td>
+        <td>{{ hotel.description }}</td>
+        <td>{{ hotel.location }}</td>
+        <td>${{ hotel.pricePerNight }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let amenity of hotel.amenities">{{ amenity }}</li>
+          </ul>
+        </td>
+        <td>
+          <div *ngIf="isImageArray(hotel.images); else singleImage">
+            <div *ngFor="let image of hotel.images">
+              <img [src]="image" alt="Hotel Image" class="hotel-image" />
+            </div>
+          </div>
+          <ng-template #singleImage>
+            <img [src]="hotel.images" alt="Hotel Image" class="hotel-image" />
+          </ng-template>
+        </td>
+        <td>
+          <div *ngFor="let roomType of hotel.roomTypes">
+            <p><strong>{{ roomType.type }}:</strong> \$ {{ roomType.price }} - Capacity: {{ roomType.capacity }} people
+            </p>
+          </div>
+        </td>
+        <td class="actions">
+          <button class="edit-btn" (click)="onEditClick(hotel)">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

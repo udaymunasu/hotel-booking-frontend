@@ -1,0 +1,43 @@
+<div class="booking-list">
+    <!-- If there are no bookings -->
+    <div *ngIf="bookings?.length === 0" class="no-bookings">
+        <p>No bookings found</p>
+    </div>
+
+    <!-- Loop through the bookings and display each one -->
+    <div *ngFor="let booking of bookings" class="booking-card">
+        <div class="booking-card-header">
+            <img [src]="booking.hotel.images[0]" alt="Hotel Image" class="hotel-image">
+            <div class="hotel-info">
+                <h3>{{ booking?.hotel?.name }}</h3>
+                <p class="hotel-location">{{ booking.hotel.location }}</p>
+                <p class="hotel-description">{{ booking.hotel.description }}</p>
+            </div>
+        </div>
+
+        <div class="booking-card-body">
+            <div class="room-details">
+                <h4>Room Type: <span>{{ booking.roomType }}</span></h4>
+                <p><strong>Guests:</strong> {{ booking.guests }}</p>
+                <p><strong>Check-in:</strong> {{ booking.checkIn | date:'shortDate' }}</p>
+                <p><strong>Check-out:</strong> {{ booking.checkOut | date:'shortDate' }}</p>
+            </div>
+
+            <div class="amenities">
+                <h5>Amenities:</h5>
+                <div class="amenity-pills">
+                    <span *ngFor="let amenity of booking.hotel.amenities" class="pill">{{ amenity }}</span>
+                </div>
+            </div>
+
+            <div class="pricing">
+                <h4>Total Price:</h4>
+                <p class="price">{{ booking.totalPrice | currency:'INR' }}</p>
+            </div>
+        </div>
+
+        <div class="booking-card-footer">
+            <button class="btn-book-now">View Booking</button>
+        </div>
+    </div>
+</div>

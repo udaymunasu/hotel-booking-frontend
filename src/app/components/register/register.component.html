@@ -1,0 +1,46 @@
+<!--ring div starts here-->
+<div class="parent">
+    <div class="ring">
+        <i style="--clr:#00ff0a;"></i>
+        <i style="--clr:#ff0057;"></i>
+        <i style="--clr:#fffd44;"></i>
+        <div class="login">
+            <h2>Register</h2>
+
+            <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onLogin()">
+                <div class="inputBx">
+                    <input type="text" formControlName="name" placeholder="Enter your name">
+                </div>
+                <div class="inputBx">
+                    <input type="email" formControlName="email" placeholder="Enter your email">
+                </div>
+                <div class="inputBx">
+                    <input type="password" formControlName="password" placeholder="Enter your password">
+                </div>
+                <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
+                    class="error">
+                    Password must be at least 3 characters long.
+                </div>
+                <div class="inputBx">
+                    <select formControlName="role">
+                        <option value="" disabled selected hidden>Select your role</option> <!-- Placeholder -->
+                        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                    </select>
+                </div>
+
+                <div class="inputBx">
+                    <input type="submit" value="Register">
+                </div>
+                <div class="links">
+                    <!-- <a href="#">Forget Password</a> -->
+                    Already a customer?
+                    <a routerLink="/login" routerLinkActive="active">Login</a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!--ring div ends here-->

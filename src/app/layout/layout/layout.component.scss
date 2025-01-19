@@ -1,0 +1,25 @@
+$primary-color: #003580; // Navbar background color
+$secondary-color: #007bff; // Button color
+$hover-color: lighten($secondary-color, 10%); // Hover effect color
+$text-color: #ffffff; // Text color
+$active-color: darken($secondary-color, 20%); // Active link color
+$border-radius: 8px; // Border radius for buttons and links
+$spacing: 20px; // Spacing between items
+
+
+.main-container {
+    position: absolute;
+    width: 100%;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+
+    &:hover {
+        color: $hover-color;
+    }
+}

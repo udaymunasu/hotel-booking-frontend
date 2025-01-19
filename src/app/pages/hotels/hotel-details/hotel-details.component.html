@@ -1,0 +1,62 @@
+<div class="hotel-detail-page">
+    <!-- Hotel Header Section -->
+    <div class="hotel-header">
+        <img class="room-image" alt="Hotel image"[src]="hotelDetails?.images" />
+        <h1 class="hotel-name">{{ hotelDetails?.name }}</h1>
+        <p class="hotel-description">{{ hotelDetails?.description }}</p>
+        <div class="hotel-location">
+            <i class="location-icon fas fa-map-marker-alt"></i>
+            <span>{{ hotelDetails?.location }}</span>
+        </div>
+        <div class="hotel-price">
+            <span class="price-per-night">Price per night: </span>
+            <span class="price">{{ hotelDetails?.pricePerNight | currency }}</span>
+        </div>
+    </div>
+
+    <!-- Room Types Section -->
+    <div class="room-types">
+        <h2>Room Types</h2>
+        <div *ngFor="let room of hotelDetails?.roomTypes" class="room-card">
+            <h3 class="room-type-name">{{ room.type }}</h3>
+            <p class="room-price">{{ room.price | currency }} per night</p>
+            <p class="room-capacity">Capacity: {{ room.capacity }} people</p>
+            <button class="btn-book-now" (click)="openBookingForm(room)">Book Now</button>
+        </div>
+    </div>
+
+    <!-- Booking Form Modal -->
+    <div class="booking-form-modal" *ngIf="isBookingFormVisible">
+        <div class="modal-content">
+            <h2>Booking Form</h2>
+            <form (ngSubmit)="submitBooking()" #bookingForm="ngForm">
+                <div>
+                    <label for="roomType">Room Type:</label>
+                    <select id="roomType" [(ngModel)]="bookingData.roomType" name="roomType" required>
+                        <option *ngFor="let room of selectedRoomTypes" [value]="room.type">{{ room.type }}</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="checkIn">Check-in Date:</label>
+                    <input type="date" id="checkIn" [(ngModel)]="bookingData.checkIn" name="checkIn" required />
+                </div>
+
+                <div>
+                    <label for="checkOut">Check-out Date:</label>
+                    <input type="date" id="checkOut" [(ngModel)]="bookingData.checkOut" name="checkOut" required />
+                </div>
+
+                <div>
+                    <label for="guests">Number of Guests:</label>
+                    <input type="number" id="guests" [(ngModel)]="bookingData.guests" name="guests" min="1" required />
+                </div>
+
+                <div>
+                    <button type="submit" [disabled]="!bookingForm.form.valid">Confirm Booking</button>
+                    <button type="button" (click)="closeBookingForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

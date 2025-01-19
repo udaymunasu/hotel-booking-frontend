@@ -1,0 +1,69 @@
+<header class="header_area">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand logo_h" routerLink="/dashboard">
+                <!-- <img src="assets/image/Logo.png" alt=""> -->
+                Dream Stays
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                (click)="toggleNavbar()" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse offset collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav menu_nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/createHotel" routerLinkActive="active-link">Create Hotels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/all-hotels" routerLinkActive="active-link">All Hotels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Welcome {{ loggedUserData?.name }}</a>
+                    </li>
+
+                    <li class="nav-item submenu dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-haspopup="true" aria-expanded="false">Blog</a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="blog.html" routerLinkActive="active-link">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="blog-single.html" routerLinkActive="active-link">Blog
+                                    Details</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="elements.html" routerLinkActive="active-link">Elemests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html" routerLinkActive="active-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/userProfile" routerLinkActive="active-link">Profile</a>
+                    </li>
+                    <li class="nav-item" (click)="onLogoff()">
+                        Sign out
+                        <span class="icons logout" style="--icon-color: white" routerLinkActive="active-link"></span>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="main-container" [ngStyle]="{ top: headerHeight + 'px' }">
+    <router-outlet></router-outlet>
+</div>
